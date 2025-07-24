@@ -12,3 +12,21 @@ sections.forEach((el) => {
   list.insertAdjacentHTML("beforeend", newNav);
 });
 
+////////////////////////////////////////////
+nav.addEventListener("click", (e) => {
+  e.preventDefault();
+  const link = e.target.closest("a[href^='#']");
+
+  // console.log(link);
+
+  if (!link) return;
+
+  const idSec = link.getAttribute("href");
+  const section = document.querySelector(idSec);
+
+  // console.log(idSec, section);
+
+  if (section) {
+    section.scrollIntoView({ behavior: "smooth" });
+  }
+});
